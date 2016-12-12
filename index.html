@@ -1,0 +1,61 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+	<title>Page Title</title>
+	<script src="jquery-1.11.1.js"></script>
+	<style>
+	.div{width:1200px;height:600px;margin:0 auto;
+		position:relative;border-top:1px solid transparent;perspective:1000px;}
+	.div div{position:absolute;}
+	.e1{top:30px;left:240px;z-index:2;transform:rotateY(0deg) scale(1);transition:all .5s}
+	.e2{top:30px;left:-107px;transform:rotateY(30deg) scale(.6);transition:all .5s}
+	.e3{top:30px;left:588px;transform:rotateY(-30deg) scale(.6);transition:all .5s}
+	.e4{top:30px;left:255px;transform:rotateY(0deg) scale(.6);transition:all .5s}
+	.e5{top:30px;left:256px;transform:rotateY(0deg) scale(.6);transition:all .5s}
+	</style>
+</head>
+<body>
+<div class="div">
+	<div class="e1"><img src="1.jpg"/></div>
+	<div class="e2"><img src="2.jpg"/></div>
+	<div class="e3"><img src="3.jpg"/></div>
+	<div class="e4"><img src="4.jpg"/></div>
+</div>
+<script>
+	$('.e2').bind('click',aa);
+	$('.e3').bind('click',bb);
+	function aa(){
+		$('.e3').attr('class','e5');
+		$('.e1').attr('class','e3');
+		$('.e2').attr('class','e1');
+		$('.e4').attr('class','e2');
+		$('.e5').attr('class','e4');
+		$('.e1,.e4').unbind('click');
+		$('.e2').bind('click',aa);
+		$('.e3').bind('click',bb);}
+	function bb(){
+		$('.e2').attr('class','e5');
+		$('.e1').attr('class','e2');
+		$('.e3').attr('class','e1');
+		$('.e4').attr('class','e3');
+		$('.e5').attr('class','e4');
+		$('.e1,.e4').unbind('click');
+		$('.e3').bind('click',bb);
+		$('.e2').bind('click',aa);}
+</script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
